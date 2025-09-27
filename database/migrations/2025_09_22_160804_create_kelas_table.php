@@ -12,9 +12,9 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('kelas', function (Blueprint $table) {
-            $table->id();
-            $table->string('nama_kelas');
-            $table->timestamps();
+            $table->id();                          // kolom id (bigserial, primary key)
+            $table->string('nama_kelas', 100);     // kolom nama_kelas
+            $table->timestamps();                  // kolom created_at & updated_at
         });
     }
 
@@ -24,5 +24,5 @@ return new class extends Migration
     public function down(): void
     {
         Schema::dropIfExists('kelas');
-    }
+}
 };

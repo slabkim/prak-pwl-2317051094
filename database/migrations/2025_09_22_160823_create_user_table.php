@@ -12,11 +12,12 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('user', function (Blueprint $table) {
-            $table->id();
-            $table->string('nama');
-            $table->string('nim');
-            $table->string('kelas_id')-> constrained('kelas');
-            $table->timestamps();
+            $table->id();                                  // kolom id (primary key)
+            $table->string('nama', 150);                   // kolom nama
+            $table->string('npm', 20)->unique();           // kolom npm, dibuat unique
+            $table->foreignId('kelas_id')                  // kolom kelas_id
+                  ->constrained();                   // jika kelas dihapus, user ikut terhapus
+            $table->timestamps();                          // created_at & updated_at
         });
     }
 
@@ -26,5 +27,5 @@ return new class extends Migration
     public function down(): void
     {
         Schema::dropIfExists('user');
-    }
+}
 };
