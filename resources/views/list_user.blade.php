@@ -3,11 +3,11 @@
 @section('content')
     <div class="container mt-4">
         <div class="card shadow">
-            <div class="card-header bg-primary text-white">
-                <h3 class="mb-0">Daftar Pengguna</h3>
+            <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center">
+                <h4 class="mb-0">Daftar Pengguna</h4>
             </div>
             <div class="card-body">
-                <table class="table table-bordered table-hover">
+                <table class="table table-striped table-hover align-middle">
                     <thead class="table-dark">
                         <tr>
                             <th>ID</th>
