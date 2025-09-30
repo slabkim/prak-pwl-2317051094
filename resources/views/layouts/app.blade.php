@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="id">
 
 <head>
@@ -12,6 +12,7 @@
     <style>
         html,
         body {
+            margin: 0;
             height: 100%;
         }
 
@@ -101,57 +102,13 @@
 </head>
 
 <body>
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm">
-        <div class="container">
-            <a class="navbar-brand" href="{{ url('/') }}">
-                <i class="bi bi-layers-fill me-2"></i>Sulthon
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+    @include('layouts.navbar')
 
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link {{ request()->is('/') ? 'active' : '' }}" href="{{ url('/') }}">
-                            <i class="bi bi-house-fill me-1"></i> Home
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link {{ request()->is('user') ? 'active' : '' }}" href="{{ url('/user') }}">
-                            <i class="bi bi-people-fill me-1"></i> User
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link {{ request()->is('user/create') ? 'active' : '' }}"
-                            href="{{ url('/user/create') }}">
-                            <i class="bi bi-person-plus-fill me-1"></i> Tambah User
-                        </a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-
-    <!-- Content -->
-    <main class="container my-5">
+    <main class="container my-5" style="padding-top: 70px;">
         @yield('content')
     </main>
 
-    <!-- Footer -->
-    <footer class="text-center">
-        <div class="container">
-            <p class="mb-3">© {{ date('Y') }} Sulthon Laravel Project. All rights reserved.</p>
-            <div class="social-icons">
-                <a href="#"><i class="bi bi-facebook"></i></a>
-                <a href="#"><i class="bi bi-twitter-x"></i></a>
-                <a href="https://www.instagram.com/slabkim?igsh=aW40NTE0MnBieGdj&utm_source=qr"><i
-                        class="bi bi-instagram"></i></a>
-                <a href="https://github.com/slabkim"><i class="bi bi-github"></i></a>
-            </div>
-        </div>
-    </footer>
+    @include('layouts.footer')
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
