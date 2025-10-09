@@ -25,6 +25,18 @@
                         <i class="bi bi-person-plus-fill me-1"></i> Tambah User
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link {{ request()->is('matakuliah') ? 'active' : '' }}"
+                        href="{{ url('/matakuliah') }}">
+                        <i class="bi bi-book-fill me-1"></i> Mata Kuliah
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link {{ request()->is('matakuliah/create') ? 'active' : '' }}"
+                        href="{{ url('/matakuliah/create') }}">
+                        <i class="bi bi-plus-circle me-1"></i> Tambah Mata Kuliah
+                    </a>
+                </li>
             </ul>
         </div>
     </div>

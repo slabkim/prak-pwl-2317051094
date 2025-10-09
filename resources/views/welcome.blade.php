@@ -33,6 +33,32 @@
                     </div>
                 </div>
             </div>
+
+            <div class="col-md-5">
+                <div class="card border-0 shadow-sm h-100 text-center">
+                    <div class="card-body">
+                        <i class="bi bi-book-fill display-4 text-warning mb-3"></i>
+                        <h5 class="card-title">Lihat Data Mata Kuliah</h5>
+                        <p class="card-text">Tampilkan daftar semua mata kuliah yang tersedia dalam sistem.</p>
+                        <a href="{{ url('/matakuliah') }}" class="btn btn-outline-warning mt-2">
+                            <i class="bi bi-arrow-right-circle"></i> Lihat Mata Kuliah
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-5">
+                <div class="card border-0 shadow-sm h-100 text-center">
+                    <div class="card-body">
+                        <i class="bi bi-plus-circle display-4 text-success mb-3"></i>
+                        <h5 class="card-title">Tambah Mata Kuliah Baru</h5>
+                        <p class="card-text">Formulir cepat dan mudah untuk menambahkan mata kuliah ke dalam sistem.</p>
+                        <a href="{{ url('/matakuliah/create') }}" class="btn btn-success mt-2">
+                            <i class="bi bi-plus-circle"></i> Tambah Mata Kuliah
+                        </a>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 @endsection
