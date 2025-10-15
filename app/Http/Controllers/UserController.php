@@ -47,6 +47,40 @@ class UserController extends Controller
             'npm' => $request->input('npm'),
             'kelas_id' => $request->input('kelas_id'),
         ]);
-        return redirect()->to('/user');
+        return redirect()->to('/user')->with('success', 'Pengguna berhasil ditambahkan!');
+    }
+
+    public function edit($id){
+        $user = $this->userModel->findOrFail($id);
+        $kelas = $this->kelasModel->getKelas();
+        $data = [
+            'title' => 'Edit User',
+            'user' => $user,
+            'kelas' => $kelas
+        ];
+
+        return view('edit_user', $data);
+    }
+
+    public function update(Request $request, $id){
+        $request->validate([
+            'nama' => 'required|string|max:150',
+            'npm' => 'required|string|max:20|unique:user,npm,' . $id,
+            'kelas_id' => 'required|exists:kelas,id',
+        ]);
+
+        $user = $this->userModel->findOrFail($id);
+        $user->update([
+            'nama' => $request->input('nama'),
+            'npm' => $request->input('npm'),
+            'kelas_id' => $request->input('kelas_id'),
+        ]);
+        return redirect()->to('/user')->with('success', 'Pengguna berhasil diupdate!');
+    }
+
+    public function destroy($id){
+        $user = $this->userModel->findOrFail($id);
+        $user->delete();
+        return redirect()->to('/user')->with('success', 'Pengguna berhasil dihapus!');
     }
 }
