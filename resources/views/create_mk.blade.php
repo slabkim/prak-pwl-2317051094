@@ -14,11 +14,21 @@
                             @csrf
                             <div class="mb-3">
                                 <label for="nama_mk" class="form-label">Nama Mata Kuliah :</label>
-                                <input type="text" id="nama_mk" name="nama_mk" class="form-control" required>
+                                <input type="text" id="nama_mk" name="nama_mk"
+                                    class="form-control @error('nama_mk') is-invalid @enderror" value="{{ old('nama_mk') }}"
+                                    required>
+                                @error('nama_mk')
+                                    <div class="invalid-feedback">{{ $message }}</div>
+                                @enderror
                             </div>
                             <div class="mb-3">
                                 <label for="sks" class="form-label">SKS :</label>
-                                <input type="number" id="sks" name="sks" class="form-control" required>
+                                <input type="number" id="sks" name="sks"
+                                    class="form-control @error('sks') is-invalid @enderror" value="{{ old('sks') }}"
+                                    required>
+                                @error('sks')
+                                    <div class="invalid-feedback">{{ $message }}</div>
+                                @enderror
                             </div>
                             <button type="submit" class="btn btn-success w-100">
                                 <i class="bi bi-check-circle me-1"></i>Submit
